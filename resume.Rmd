@@ -1,0 +1,132 @@
+---
+title: "Vivek Katial's CV"
+author: Vivek Katial
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+library(tidyverse)
+library(glue)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- TRUE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+
+# First let's get the data, filtering to only the items tagged as
+# Resume items
+position_data <- read_csv('positions.csv') %>% 
+  filter(in_resume) %>% 
+  mutate(
+    # Build some custom sections by collapsing others
+    section = case_when(
+      section %in% c('research_positions', 'industry_positions', "teaching_positions") ~ 'positions',
+      TRUE ~ section
+    )
+  ) 
+```
+
+
+Aside
+================================================================================
+
+
+![logo](vivek-pic.png){width=100%}
+
+Contact and Links {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> vivekkatial@gmail.com
+- <i class="fa fa-github"></i> [github.com/vivekkatial](https://github.com/vivekkatial)
+- <i class="fa fa-stack-overflow"></i> [vivekkatial](https://stackoverflow.com/users/8509235/vivek-katial)
+- <i class="fa fa-linkedin"></i> [vivekkatial](https://www.linkedin.com/in/vivek-katial-81b01a87/)
+- <i class="fa fa-phone"></i> +61 413-762-449
+- <i class="fa fa-home"></i> 173 Vere St, Melbourne, AU
+
+
+Language Skills {#skills}
+--------------------------------------------------------------------------------
+
+
+```{r}
+skills <- tribble(
+  ~skill,               ~level,
+  "R",                  5,
+  "Python",             4,
+  "Bash",               3.5,
+  "Docker",                3,
+  "Singularity",           3,
+  "AWS/Cloud",                3,
+  "LaTeX", 3
+)
+build_skill_bars(skills)
+```
+
+
+
+Selected Projects {#more-info}
+--------------------------------------------------------------------------------
+
+I have worked on several side-projects for fun. I have listed some below:
+
+- [EZ-experimentr](https://github.com/vivekkatial/ez-experimentr): A tool to help researchers run reproducible experiments at scale
+- [ubeRideR](https://github.com/vivekkatial/uber_shiny): A Shiny Web Application to play with Uber trips 
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+
+Source code: [github.com/vivekkatial/vk-cv](https://github.com/vivekkatial/vk-cv).
+
+Last updated on `r Sys.Date()`.
+
+
+
+
+Main
+================================================================================
+
+Vivek Katial {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+intro_text <- "Currently a PhD candidate at the University of Melbourne School of Mathematics and Statistics. I am someone who loves math, coding and travel. I pride myself on making my work reproducible and thrive for best practice.
+
+I enjoy getting my hands dirty in data and am always looking for opportunities where technology can be used for social good."
+
+cat(sanitize_links(intro_text))
+```
+
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('education')
+```
+
+Industry Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'positions')
+```
+
+
