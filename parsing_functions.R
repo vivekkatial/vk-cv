@@ -67,7 +67,7 @@ print_section <- function(position_data, section_id){
     mutate(
       timeline = ifelse(
         is.na(start) | start == end,
-        end,
+        start,
         glue('{end} - {start}')
       ),
       description_bullets = ifelse(

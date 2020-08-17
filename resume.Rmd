@@ -67,10 +67,10 @@ skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
   "Python",             4,
-  "Bash",               3.5,
-  "Docker",                3,
-  "Singularity",           3,
-  "AWS/Cloud",                3,
+  "Bash",               4,
+  "Docker",                4,
+  "Singularity",           4,
+  "AWS/Cloud",                4,
   "LaTeX", 3
 )
 build_skill_bars(skills)
@@ -84,7 +84,7 @@ Selected Projects {#more-info}
 I have worked on several side-projects for fun. I have listed some below:
 
 - [EZ-experimentr](https://github.com/vivekkatial/ez-experimentr): A tool to help researchers run reproducible experiments at scale
-- [ubeRideR](https://github.com/vivekkatial/uber_shiny): A Shiny Web Application to play with Uber trips 
+- [ubeRideR](https://github.com/vivekkatial/uber_shiny): A Shiny Web Application to play with Uber trips. App was selected as a finalist in RStudio's 2019 Annual Shiny Contest.
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
