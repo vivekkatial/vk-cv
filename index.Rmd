@@ -27,7 +27,8 @@ links <- c()
 source('parsing_functions.R')
 
 # Load csv with position info
-position_data <- read_csv('positions.csv')
+position_data <- read_csv('positions.csv') %>% 
+  filter(in_resume)
 ```
 
 
@@ -48,7 +49,7 @@ Aside
 ================================================================================
 
 
-<!-- ![logo](vivek-pic.png){width=100%} -->
+<img src="vivek-pic.png">
 
 ```{r, eval=F}
 # When in export mode the little dots are unaligned, so fix that. 

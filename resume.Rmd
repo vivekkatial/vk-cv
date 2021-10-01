@@ -54,8 +54,8 @@ Contact and Links {#contact}
 - <i class="fa fa-github"></i> [github.com/vivekkatial](https://github.com/vivekkatial)
 - <i class="fa fa-stack-overflow"></i> [vivekkatial](https://stackoverflow.com/users/8509235/vivek-katial)
 - <i class="fa fa-linkedin"></i> [vivekkatial](https://www.linkedin.com/in/vivek-katial-81b01a87/)
-- <i class="fa fa-phone"></i> +61 413-762-449
-- <i class="fa fa-home"></i> 173 Vere St, Melbourne, AU
+- <i class="fa fa-phone"></i> +61 451-633-397
+- <i class="fa fa-home"></i> 13A Laity St, Melbourne, AU
 
 
 Language Skills {#skills}
@@ -66,11 +66,11 @@ Language Skills {#skills}
 skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
-  "Python",             4,
+  "Python",             5,
+  "AWS/Cloud",                5,
   "Bash",               4,
   "Docker",                4,
   "Singularity",           4,
-  "AWS/Cloud",                4,
   "LaTeX", 3
 )
 build_skill_bars(skills)
@@ -83,18 +83,9 @@ Selected Projects {#more-info}
 
 I have worked on several side-projects for fun. I have listed some below:
 
+- [HAQC](https://github.com/vivekkatial/HAQC) A heuristic hybrid quantum algorithm for solving logistics and routing problems on Quantum Computers 
 - [EZ-experimentr](https://github.com/vivekkatial/ez-experimentr): A tool to help researchers run reproducible experiments at scale
 - [ubeRideR](https://github.com/vivekkatial/uber_shiny): A Shiny Web Application to play with Uber trips. App was selected as a finalist in RStudio's 2019 Annual Shiny Contest.
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
-
-Source code: [github.com/vivekkatial/vk-cv](https://github.com/vivekkatial/vk-cv).
-
-Last updated on `r Sys.Date()`.
-
 
 
 
@@ -106,20 +97,11 @@ Vivek Katial {#title}
 
 
 ```{r}
-intro_text <- "Currently a PhD candidate at the University of Melbourne School of Mathematics and Statistics. I am someone who loves math, coding and travel. I pride myself on making my work reproducible and thrive for best practice.
+intro_text <- "Currently the Executive Director at the Good Data Institute, Founding member and Data Scientist at Multitudes and a PhD candidate at the University of Melbourne School of Mathematics and Statistics. My PhD research is conducting Instance Space analysis on Quantum optimisation algorithms, under the supervision of Prof. Kate Smith-Miles and Dr Charles Hill
 
-I enjoy getting my hands dirty in data and am always looking for opportunities where technology can be used for social good."
+I am someone who loves math, coding and travel. I pride myself on making my work reproducible and thrive for best practice. I enjoy getting my hands dirty in data and am always looking for opportunities where technology can be used for social good."
 
 cat(sanitize_links(intro_text))
-```
-
-
-
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
-
-```{r}
-position_data %>% print_section('education')
 ```
 
 Industry Experience {data-icon=suitcase}
@@ -127,6 +109,14 @@ Industry Experience {data-icon=suitcase}
 
 ```{r}
 print_section(position_data, 'positions')
+```
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('education')
 ```
 
 
